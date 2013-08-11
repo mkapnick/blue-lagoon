@@ -1,0 +1,53 @@
+
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+
+<style type= "text/css">
+  body {
+    background-color: #1c3c50;
+  } 
+  img {
+    display: none;
+  }
+  #instalikes {
+    text-align: center;
+    color: #00cd6b;
+    position: relative;
+    top: 100px;
+    line-height: 40px;
+    font-size: 85px;
+    font-weight: 300px;
+    
+  }
+  #username, #password, #hashtags {
+  
+    width: 400px;
+    margin: center auto;
+    position:relative;   
+
+  }
+
+  #box {
+    height: 200px;
+    width: 400px;
+    background-color: white;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 125px;
+
+  }
+</style>
+
+  <div id ="instalikes"> Instalikes </div>
+  <div id= "box">
+  </div>
+
+  <div id="username"> <%= text_field_tag 'usernameTextBox', nil, :placeholder => 'Username' %> </div>
+  <div id="password"> <%= text_field_tag 'passwordTextBox', nil, :placeholder => 'Password' %></div>
+  <div id="hashtags"> <%= text_field_tag 'hashtagTextBox',  nil, :placeholder => 'Hashtags' %></div>
+
+
+
+
+
+
