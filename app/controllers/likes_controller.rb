@@ -83,6 +83,13 @@ class LikesController < ApplicationController
 
 
   def run_python_script
-    
+    username = params[:usernameTextBox]
+    password = params[:passwordTextBox]
+    hashTags = params[:hashtagTextBox]
+    #render :text => hashTags[0] and return
+
+    script = Rails.root.join('public', 'likeHashTags.py')
+    system("python #{script} #{username} #{password} #{hashTags}")
+    render "index.html.erb"
   end
 end

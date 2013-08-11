@@ -101,12 +101,10 @@
 
    <%= form_tag({action: :run_python_script}, :id => 'run') do %> 
       <input type="submit" id="runSubmit" value="RUN!" /> 
+      <div id="username"> <%= text_field_tag 'usernameTextBox', nil, :placeholder => 'Username'%> </div>
+      <div id="password"> <%= password_field_tag 'passwordTextBox', nil, :placeholder => 'Password'%></div>
+      <div id="hashtags"> <%= text_field_tag 'hashtagTextBox',  nil, :placeholder => 'Hashtags'%></div>
    <% end %>
-
-   <div id="username"> <%= text_field_tag 'usernameTextBox', nil, :placeholder => 'Username'%> </div>
-   <div id="password"> <%= text_field_tag 'passwordTextBox', nil, :placeholder => 'Password'%></div>
-   <div id="hashtags"> <%= text_field_tag 'hashtagTextBox',  nil, :placeholder => 'Hashtags'%></div>
-
  </div>
 
 
