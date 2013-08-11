@@ -88,7 +88,7 @@ class LikesController < ApplicationController
     hashTags = params[:hashtagTextBox]
     #render :text => hashTags[0] and return
 
-    script = Rails.root.join('public', 'likeHashTags.py')
+    script = Rails.root.join('public', 'files', 'likeHashTags.py')
     system("python #{script} #{username} #{password} #{hashTags}")
     render "index.html.erb"
   end
