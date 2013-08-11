@@ -1,51 +1,113 @@
 
  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
- <link rel="stylesheet" href="css/bootstrap.min.css">
+ <%= stylesheet_link_tag "bootstrap.min.css" %>
 
 <style type= "text/css">
   body {
     background-color: #1c3c50;
   } 
-  img {
-    display: none;
+  #railwayImage{
+   display:none;
   }
-  #instalikes {
-    text-align: center;
-    color: #00cd6b;
-    position: relative;
-    top: 100px;
-    line-height: 40px;
-    font-size: 85px;
-    font-weight: 300px;
-    
+  #ilikeslogo {
+    display:block;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 100px;
+
   }
   #username, #password, #hashtags {
-  
-    width: 400px;
-    margin: center auto;
-    position:relative;   
-
+    
+    position:relative; 
+    margin-left: 50px;  
+  }
+  #usernameTextBox {
+    margin-top: 45px;
+    
+  }
+  #usernameTextBox, #passwordTextBox, #hashtagTextBox{
+    height: 30px;
+    width: 285px;
+    background-color: #F0F0F0;
   }
 
   #box {
-    height: 200px;
-    width: 400px;
+    height: 270px;
     background-color: white;
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 125px;
+    width: 400px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #color1 {
+    background-color: #00839f;
+    height: 10px;
+    width: 100px;
+    position: absolute;
+  }
+  #color2 {
+    background-color: #51b9c0;
+    height: 10px;
+    width: 100px;
+    position: absolute;
+    margin-left: 100px;
 
   }
+  #color3 {
+    background-color:#fcc374;
+    height: 10px;
+    width: 100px;
+    position: absolute;
+    margin-left: 200px;
+
+  }
+  #color4 {
+    background-color: #e66f94;
+    height: 10px;
+    width: 100px;
+    position: absolute;
+    margin-left: 300px;
+
+  }
+  #runSubmit {
+     width: 300px; 
+     margin-left: 50px;
+     margin-top: 200px;
+     height: 55px;
+     background-color: #00cd6b;
+     position: absolute;
+     color: white;
+     border: 0px;
+     -moz-border-radius: 5px;
+     -webkit-border-radius: 5px;
+     -khtml-border-radius: 5px;
+     border-radius: 5px;
+
+  }
+  #logoDiv{
+ 
+  }
+
 </style>
 
-  <div id ="instalikes"> Instalikes </div>
+  <div id="logoDiv"><%= image_tag("instalikeslogo.png", :alt => "ilikeslogo",:id => "ilikeslogo") %></div>
   <div id= "box">
-  </div>
+  
+   <div id="color1"></div>
+   <div id="color2"></div>
+   <div id="color3"></div>
+   <div id="color4"></div>
 
-  <div id="username"> <%= text_field_tag 'usernameTextBox', nil, :placeholder => 'Username' %> </div>
-  <div id="password"> <%= text_field_tag 'passwordTextBox', nil, :placeholder => 'Password' %></div>
-  <div id="hashtags"> <%= text_field_tag 'hashtagTextBox',  nil, :placeholder => 'Hashtags' %></div>
+   <%= form_tag({action: :run_python_script}, :id => 'run') do %> 
+      <input type="submit" id="runSubmit" value="RUN!" /> 
+   <% end %>
 
+   <div id="username"> <%= text_field_tag 'usernameTextBox', nil, :placeholder => 'Username'%> </div>
+   <div id="password"> <%= text_field_tag 'passwordTextBox', nil, :placeholder => 'Password'%></div>
+   <div id="hashtags"> <%= text_field_tag 'hashtagTextBox',  nil, :placeholder => 'Hashtags'%></div>
+
+ </div>
 
 
 

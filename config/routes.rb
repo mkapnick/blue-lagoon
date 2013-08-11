@@ -2,7 +2,7 @@ Instalikes::Application.routes.draw do
 
   resources :likes
  
-  
+  match '/herewego', :to => 'likes#run_python_script'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -80,4 +80,9 @@ class LikesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def run_python_script
+    
+  end
 end
