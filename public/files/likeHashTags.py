@@ -9,12 +9,12 @@ import sys
 
 username = sys.argv[1]
 password = sys.argv[2]
-print "-----------------------------------------------------------------------------"
 hashtags = []
 
 for tag in sys.argv[3:]:
     hashtags.append(tag)
 
+print hashtags
 def login():
     print "in login"
     try:
@@ -22,7 +22,6 @@ def login():
     except:
         pass
 
-    print "1"
     buf = cStringIO.StringIO()
     c = pycurl.Curl()
     c.setopt(pycurl.URL, "http://web.stagram.com")
@@ -36,45 +35,29 @@ def login():
     curlData = buf.getvalue()
     buf.close()
 
-    print "2"
     clientid = re.findall(ur"href=\"https:\/\/api.instagram.com\/oauth\/authorize\/\?client_id=([a-z0-9]*)&redirect_uri=http:\/\/web.stagram.com\/&response_type=code&scope=likes\+comments\+relationships\">LOG IN",curlData)
     instagramlink = re.findall(ur"href=\"([^\"]*)\">LOG IN",curlData)
 
 
 
-    print "3"
     buf = cStringIO.StringIO()
-    print "4"
     c = pycurl.Curl()
-    print "5"
     c.setopt(pycurl.URL, instagramlink[0])
-    print "6"
     c.setopt(pycurl.COOKIEFILE, "pycookie.txt")
-    print "7"
     c.setopt(pycurl.COOKIEJAR, "pycookie.txt")
-    print "8"
     c.setopt(pycurl.WRITEFUNCTION, buf.write)
-    print "9"
     c.setopt(pycurl.FOLLOWLOCATION, 1)
-    print "10"
     c.setopt(pycurl.ENCODING, "")
-    print "11"
     c.setopt(pycurl.USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6 (.NET CLR 3.5.30729)")
-    print "12"
     c.perform()
-    print "13"
     curlData = buf.getvalue()
-    print "14"
     buf.close()
 
-    print "4"
     postaction = re.findall(ur"action=\"([^\"]*)\"",curlData)
     csrfmiddlewaretoken = re.findall(ur"name=\"csrfmiddlewaretoken\" value=\"([^\"]*)\"",curlData)
 
 
 
-
-    print "5"
     postdata = 'csrfmiddlewaretoken='+csrfmiddlewaretoken[0]+'&username='+username+'&password='+password
 
     buf = cStringIO.StringIO()
@@ -95,8 +78,6 @@ def login():
     c.perform()
     curlData = buf.getvalue()
     buf.close()
-    print "6"
-
 
 def like():
     likecount = 0

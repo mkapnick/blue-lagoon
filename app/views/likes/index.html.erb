@@ -85,11 +85,40 @@
      border-radius: 5px;
 
   }
-  #logoDiv{
- 
-  }
+ #knicks {
+  margin-top: -105px;
+  position: absolute;
+  margin-left: 160px;
+ }
+ #gif {
+  background-color: #000000;
+  position: absolute;
+  margin-top: -150px;
+  margin-left: 115px;
+  width: 20%;
+  height: 20%;
+  display: none;
+ }
+ #onwait {
+  display:block;
+  margin-left: auto;
+  margin-right: auto; 
+ }
 
 </style>
+
+<script>
+ $(document).ready(function () 
+ {
+    $("#runSubmit").click(function() 
+    {
+      $('#knicks').show(); // show animation  
+      $('#gif').show();
+      $("#runForm").fadeTo(500, 0.2)
+      return true; // allow regular form submission
+    });
+});
+</script>
 
   <div id="logoDiv"><%= image_tag("instalikeslogo.png", :alt => "ilikeslogo",:id => "ilikeslogo") %></div>
   <div id= "box">
@@ -99,6 +128,7 @@
    <div id="color3"></div>
    <div id="color4"></div>
 
+   <div id="runForm">
    <%= form_tag({action: :run_python_script}, :id => 'run') do %> 
       <input type="submit" id="runSubmit" value="RUN!" /> 
       <div id="username"> <%= text_field_tag 'usernameTextBox', nil, :placeholder => 'Username'%> </div>
@@ -106,6 +136,12 @@
       <div id="hashtags"> <%= text_field_tag 'hashtagTextBox',  nil, :placeholder => 'Hashtags'%></div>
    <% end %>
  </div>
+
+   <div id="onwait">
+    <%= image_tag("ajax-loader.gif", :id => "gif", :alt => "loading_image", :size => "90x90") %>
+ </div>
+ </div>
+
 
 
 
