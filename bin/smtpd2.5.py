@@ -1,1 +1,0 @@
-../../System/Library/Frameworks/Python.framework/Versions/2.5/bin/smtpd2.5.py
