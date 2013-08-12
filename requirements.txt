@@ -1,1 +1,2 @@
 pycurl==7.19.0
+requests==0.11.1
