@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import os
-os.system("cd ~/pycurl-7.19.0 && python setup.py install --user && cd ~/setuptools-0.9.8 && python setup.py install --user")
+os.system("cd ~/pycurl-7.19.0 && python setup.py install --user")
 import pycurl
 import cStringIO
 import re
