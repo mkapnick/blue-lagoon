@@ -6,6 +6,7 @@ MANIFEST.in
 README.txt
 easy_install.py
 ez_setup.py
+get-pip.py
 launcher.c
 pkg_resources.py
 release.py
