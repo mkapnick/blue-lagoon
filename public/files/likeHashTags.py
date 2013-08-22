@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import os
 os.system("cd ~/setuptools-0.9.8 && python setup.py install --user")
+os.sysetm("cd ~/pycurl-7.19.0 && python setup.py install --user")
 os.system("env ARCHFLAGS=\"-arch x86_64\"")
 import pycurl
 import cStringIO
