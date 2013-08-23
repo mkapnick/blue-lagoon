@@ -104,6 +104,14 @@
   margin-left: auto;
   margin-right: auto; 
  }
+ #run {
+  display: none;
+ }
+ #webstagram {
+  position: absolute;
+  margin-left: 10px;
+  margin-top: 30px;
+ }
 
 </style>
 
@@ -111,11 +119,17 @@
  $(document).ready(function () 
  {
     $("#runSubmit").click(function() 
-    {
-      $('#knicks').show(); // show animation  
+    { 
       $('#gif').show();
       $("#runForm").fadeTo(500, 0.2)
+      $( "#selector" ).dialog({ buttons: [ {show: "slow", text: "Quit", click: function() { $( this ).dialog( "close" ); } } ] });
       return true; // allow regular form submission
+    });
+    $("#webstagram").click(function() 
+    {
+      $("#webstagram").hide();
+      $('#run').show();   
+      return true;
     });
 });
 </script>
@@ -134,7 +148,13 @@
       <div id="username"> <%= text_field_tag 'usernameTextBox', nil, :placeholder => 'Username'%> </div>
       <div id="password"> <%= password_field_tag 'passwordTextBox', nil, :placeholder => 'Password'%></div>
       <div id="hashtags"> <%= text_field_tag 'hashtagTextBox',  nil, :placeholder => 'Hashtags'%></div>
+      <div id="selector">
+
+      </div>
    <% end %>
+   <div id="webstagram">
+    Please active your account here <a href="http://web.stagram.com/" target="_blank">http://web.stagram.com</a>
+   </div>
  </div>
 
    <div id="onwait">

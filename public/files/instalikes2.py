@@ -1,14 +1,14 @@
 #!/usr/bin/python
 import os
-os.system("cd ~/pycurl-7.19.0 && python setup.py install --user")
+#os.system("cd ~/pycurl-7.19.0 && python setup.py install --user")
 import pycurl
 import cStringIO
 import re
 import random
 import time
 
-username = "mkappp"
-password = "michael18"
+username = "jonahandmike"
+password = "newyorktimes"
 hashtags = ["deltoroshoes", "grungygentleman"]
 
 def login():
