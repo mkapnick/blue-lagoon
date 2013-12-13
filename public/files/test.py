@@ -1,25 +1,16 @@
 #!/usr/bin/python
 import os
-#os.system("cd ~/setuptools-0.9.8 && python setup.py install --user")
-#os.system("cd ~/pycurl-7.19.0 && python setup.py install --user")
-#os.system(" env ARCHFLAGS=\"-arch x86_64\" ")
 import pycurl
 import cStringIO
 import re
 import random
 import time
-import sys
 
-username = sys.argv[1]
-password = sys.argv[2]
-hashtags = []
+username = "jonahandmike"
+password = "newyorktimes"
+hashtags = ["design", "ios"]
 
-for tag in sys.argv[3:]:
-    hashtags.append(tag)
-
-print hashtags
 def login():
-    print "in login"
     try:
         os.remove("pycookie.txt")
     except:
@@ -43,6 +34,7 @@ def login():
 
 
 
+
     buf = cStringIO.StringIO()
     c = pycurl.Curl()
     c.setopt(pycurl.URL, instagramlink[0])
@@ -58,6 +50,8 @@ def login():
 
     postaction = re.findall(ur"action=\"([^\"]*)\"",curlData)
     csrfmiddlewaretoken = re.findall(ur"name=\"csrfmiddlewaretoken\" value=\"([^\"]*)\"",curlData)
+
+
 
 
 
@@ -81,6 +75,8 @@ def login():
     c.perform()
     curlData = buf.getvalue()
     buf.close()
+
+
 
 def like():
     likecount = 0
